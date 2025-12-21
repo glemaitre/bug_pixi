@@ -1,0 +1,31 @@
+[workspace]
+preview = ["pixi-build"]
+channels = ["https://prefix.dev/conda-forge"]
+platforms = ["osx-arm64"]
+
+[package]
+name = "package_2"
+version = "0.1.0"
+
+[package.build.backend]
+name = "pixi-build-python"
+version = "*"
+
+[package.build.source]
+path = "package_2"
+
+[package.build-dependencies]
+python = "*"
+
+[package.host-dependencies]
+python = "*"
+hatchling = "*"
+
+[package.run-dependencies]
+python = "*"
+numpy = "*"
+package_1 = { path = "../package_1" }
+
+[dependencies]
+package_1 = { path = "../package_1" }
+package_2 = { path = "." }
